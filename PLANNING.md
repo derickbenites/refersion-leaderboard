@@ -32,7 +32,7 @@ Status legend: `todo` · `doing` · `done` · `blocked`
 | P1.1 | done | Root `.gitignore` | `chore: add root gitignore` |
 | P1.2 | done | Scaffold Laravel app in `backend/` | `chore: scaffold laravel backend` |
 | P1.3 | done | Scaffold React+Vite+TS+Tailwind in `frontend/` | `chore: scaffold react vite frontend` |
-| P1.4 | todo | Root README quick start | `docs: add root README` |
+| P1.4 | done | Root README quick start | `docs: add root README` |
 | P1.5 | todo | `AI_USAGE.md` template | `docs: add AI usage template` |
 
 ---
