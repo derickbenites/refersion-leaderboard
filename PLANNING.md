@@ -46,7 +46,7 @@ Status legend: `todo` · `doing` · `done` · `blocked`
 | P2.3 | done | List affiliates with pagination stop rule | `feat: paginate refersion affiliates` |
 | P2.4 | done | Fetch affiliate custom fields | `feat: fetch affiliate custom fields` |
 | P2.5 | done | Eligibility filter exact `Display in leaderboard` / ` TRUE` | `feat: filter leaderboard eligibility` |
-| P2.6 | todo | Rank by `performance.total.commission` and take top 5 | `feat: rank top five affiliates` |
+| P2.6 | done | Rank by `performance.total.commission` and take top 5 | `feat: rank top five affiliates` |
 | P2.7 | todo | `GET /api/leaderboard` JSON endpoint + error handling | `feat: expose leaderboard api` |
 | P2.8 | todo | Feature/unit test for exact `" TRUE"` eligibility | `test: eligibility requires leading-space TRUE` |
 
