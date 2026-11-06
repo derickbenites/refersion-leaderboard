@@ -2,6 +2,8 @@
 
 Disclosure for reviewers. AI assistance is allowed. This log names the harness, the model, and the request. It does not include Client ID, Client Secret, access tokens, or hidden system instructions.
 
+The task difficulty was medium. The model was Grok 4.7 in Cursor, used at the session's default effort level. No separate low, medium, or high effort setting was recorded.
+
 | When | Harness | Model | Prompt | Outcome |
 |------|---------|-------|--------|---------|
 | 2026-11-06 | Cursor | Grok 4.7 | Scaffold Laravel 13 with the given Docker Composer flow. Do not migrate again and do not commit yet. | `backend/` with Laravel Framework 13.40.0 |
