@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'refersion' => [
+        'base_url' => env('REFERSION_BASE_URL', 'https://api.refersion.com/v2026-08'),
+        'token_url' => env('REFERSION_TOKEN_URL', 'https://auth.refersion.com/oauth/token'),
+        'client_id' => env('REFERSION_CLIENT_ID'),
+        'client_secret' => env('REFERSION_CLIENT_SECRET'),
+    ],
+
 ];
