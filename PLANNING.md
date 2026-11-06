@@ -12,7 +12,7 @@ Status legend: `todo` · `doing` · `done` · `blocked`
 |----|--------|------|------------------|
 | P0.1 | done | Capture CONTEXT / AGENT / PLANNING for SDD | `docs: add CONTEXT AGENT and PLANNING` |
 | P0.2 | done | Lock stack and workflow decisions | `docs: lock open decisions` |
-| P0.3 | doing | Init git root with docs in D:\repositories\refersion-leaderboard | `docs: add CONTEXT AGENT PLANNING and lock stack decisions` |
+| P0.3 | done | Init git root with docs in D:\repositories\refersion-leaderboard | `docs: add CONTEXT AGENT PLANNING and lock stack decisions` |
 
 ### Locked decisions
 
@@ -29,9 +29,9 @@ Status legend: `todo` · `doing` · `done` · `blocked`
 
 | ID | Status | Task | Suggested commit |
 |----|--------|------|------------------|
-| P1.1 | todo | Root `.gitignore` | `chore: add root gitignore` |
-| P1.2 | todo | Scaffold Laravel app in `backend/` | `chore: scaffold laravel backend` |
-| P1.3 | todo | Scaffold React+Vite+TS+Tailwind in `frontend/` | `chore: scaffold react vite frontend` |
+| P1.1 | done | Root `.gitignore` | `chore: add root gitignore` |
+| P1.2 | done | Scaffold Laravel app in `backend/` | `chore: scaffold laravel backend` |
+| P1.3 | done | Scaffold React+Vite+TS+Tailwind in `frontend/` | `chore: scaffold react vite frontend` |
 | P1.4 | todo | Root README quick start | `docs: add root README` |
 | P1.5 | todo | `AI_USAGE.md` template | `docs: add AI usage template` |
 
