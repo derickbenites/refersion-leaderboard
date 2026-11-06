@@ -6,7 +6,7 @@ final class Eligibility
 {
     public const string LABEL = 'Display in leaderboard';
 
-    public const string VALUE = ' TRUE';
+    public const string VALUE = 'TRUE';
 
     /**
      * @param  list<array<string, mixed>>  $customFields

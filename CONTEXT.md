@@ -15,7 +15,7 @@ Built as a timed exercise (~**90 minutes**). Prefer clear decisions, verifiable 
 1. Fetch all affiliates via `GET /affiliates` (read `data`, paginate with `page` + `limit`; start at `page=1`; stop when a page returns fewer records than `limit`).
 2. For each affiliate, fetch custom fields via `GET /affiliates/{affiliateId}/custom-fields` (read `data`).
 3. Display the **top five** eligible affiliates in a **table**, ranked by `performance.total.commission` descending.
-4. Eligibility: custom field with label **`Display in leaderboard`** and value **exactly** the string **` TRUE`** (leading space required).
+4. Eligibility: custom field with label **`Display in leaderboard`** and value **exactly** the string **`TRUE`**.
 
 API:
 
@@ -29,7 +29,7 @@ Deliverable: **public GitHub repository**.
 
 ## 3. Non-goals
 
-- Loosening the `" TRUE"` match (no trim/case-fold for eligibility)
+- Loosening the `"TRUE"` match (no trim/case-fold for eligibility)
 - Inventing API response fields
 - Building a full Refersion clone / admin panel
 - Deploying to production (local run is enough unless time allows)
@@ -56,7 +56,7 @@ Deliverable: **public GitHub repository**.
 ## 6. Known API quirks (verify during implementation)
 
 - Affiliate `id` may arrive as a **number** — coerce safely for path segments
-- Custom-field values may include near-misses (`TRUE`, `true`, etc.); eligibility remains **exact** `" TRUE"`
+- Custom-field values may include near-misses (` TRUE`, `true`, etc.); eligibility remains **exact** `"TRUE"`
 
 ## 7. Related docs
 

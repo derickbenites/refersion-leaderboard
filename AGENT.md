@@ -74,7 +74,7 @@ npm run build
 
 ## Testing
 
-- Mandatory: unit/feature test that eligibility requires exact `" TRUE"` (leading space)
+- Mandatory: unit/feature test that eligibility requires exact `"TRUE"`
 - Nice: pagination stop condition; ranking order
 - Prefer fast tests; mock HTTP when testing ranking/filter
 

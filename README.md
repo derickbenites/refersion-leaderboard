@@ -52,20 +52,23 @@ App: http://localhost:5173
 
 ## Live run
 
-Checked on 2026-11-06 against `https://api.refersion.com/v2026-08`. On this machine port 8000 was already taken, so Laravel was published on `http://127.0.0.1:8001` and the Vite app on `http://127.0.0.1:5176` proxied `/api` to it.
+Checked on 2026-11-06 against `https://api.refersion.com/v2026-08`.
 
 `GET /api/leaderboard` returned:
 
 ```json
 {
   "data": [
-    { "rank": 1, "id": 8572723, "name": "Vella Braun", "commission": 431289 },
-    { "rank": 2, "id": 8572704, "name": "Bradly Kuhic", "commission": 331475 }
+    { "rank": 1, "id": 8572722, "name": "Lily Kertzmann", "commission": 702513 },
+    { "rank": 2, "id": 8572717, "name": "Clark Rolfson", "commission": 574870 },
+    { "rank": 3, "id": 8572699, "name": "Peter Bosco", "commission": 572666 },
+    { "rank": 4, "id": 8572735, "name": "Chauncey Hartmann", "commission": 562730 },
+    { "rank": 5, "id": 8572728, "name": "Mitchel Ortiz", "commission": 477234 }
   ]
 }
 ```
 
-The React table rendered those same two rows. Only two affiliates had the custom field `Display in leaderboard` with the value exactly ` TRUE`.
+The React table renders those rows. An affiliate is eligible when the custom field `Display in leaderboard` has the value exactly `TRUE`.
 
 ## Unfinished work
 

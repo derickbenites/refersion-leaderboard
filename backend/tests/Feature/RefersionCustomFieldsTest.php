@@ -33,14 +33,14 @@ class RefersionCustomFieldsTest extends TestCase
                 'data' => [[
                     'id' => 9,
                     'label' => 'Display in leaderboard',
-                    'value' => ' TRUE',
+                    'value' => 'TRUE',
                 ]],
             ]),
         ]);
 
         $fields = $this->app->make(RefersionClient::class)->customFields(15.0);
 
-        $this->assertSame(' TRUE', $fields[0]['value']);
+        $this->assertSame('TRUE', $fields[0]['value']);
         Http::assertSent(function ($request): bool {
             return $request->url() === 'https://api.refersion.com/v2026-08/affiliates/15/custom-fields'
                 && $request->hasHeader('Authorization', 'Bearer test-access-token');

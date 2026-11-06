@@ -24,14 +24,14 @@ class LeaderboardTest extends TestCase
     public function test_it_returns_the_top_five_eligible_affiliates(): void
     {
         $values = [
-            1 => ' TRUE',
-            2 => 'TRUE',
-            3 => ' TRUE',
-            4 => ' TRUE',
-            5 => ' TRUE',
-            6 => ' TRUE',
-            7 => ' TRUE',
-            8 => ' TRUE',
+            1 => 'TRUE',
+            2 => ' TRUE',
+            3 => 'TRUE',
+            4 => 'TRUE',
+            5 => 'TRUE',
+            6 => 'TRUE',
+            7 => 'TRUE',
+            8 => 'TRUE',
         ];
         $commissions = [
             1 => 10,

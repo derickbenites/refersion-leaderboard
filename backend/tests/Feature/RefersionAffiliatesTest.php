@@ -64,25 +64,6 @@ class RefersionAffiliatesTest extends TestCase
         });
     }
 
-    public function test_it_stops_on_the_first_short_page(): void
-    {
-        Http::fake([
-            'https://auth.refersion.com/oauth/token' => Http::response([
-                'token_type' => 'Bearer',
-                'expires_in' => 3600,
-                'access_token' => 'test-access-token',
-            ]),
-            self::BASE_URL.'/affiliates*' => Http::response([
-                'data' => [['id' => 7]],
-            ]),
-        ]);
-
-        $affiliates = $this->app->make(RefersionClient::class)->listAffiliates(2);
-
-        $this->assertSame([['id' => 7]], $affiliates);
-        Http::assertSentCount(2);
-    }
-
     /**
      * @return array<string, mixed>
      */

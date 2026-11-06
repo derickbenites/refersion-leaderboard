@@ -45,10 +45,10 @@ Status legend: `todo` · `doing` · `done` · `blocked`
 | P2.2 | done | Refersion OAuth token service | `feat: exchange refersion oauth token` |
 | P2.3 | done | List affiliates with pagination stop rule | `feat: paginate refersion affiliates` |
 | P2.4 | done | Fetch affiliate custom fields | `feat: fetch affiliate custom fields` |
-| P2.5 | done | Eligibility filter exact `Display in leaderboard` / ` TRUE` | `feat: filter leaderboard eligibility` |
+| P2.5 | done | Eligibility filter exact `Display in leaderboard` / `TRUE` | `feat: filter leaderboard eligibility` |
 | P2.6 | done | Rank by `performance.total.commission` and take top 5 | `feat: rank top five affiliates` |
 | P2.7 | done | `GET /api/leaderboard` JSON endpoint + error handling | `feat: expose leaderboard api` |
-| P2.8 | done | Feature/unit test for exact `" TRUE"` eligibility | `test: eligibility requires leading-space TRUE` |
+| P2.8 | done | Feature/unit test for exact `"TRUE"` eligibility | `test: eligibility requires exact TRUE` |
 
 ---
 
@@ -86,6 +86,6 @@ Status legend: `todo` · `doing` · `done` · `blocked`
 
 1. `GET /api/leaderboard` returns eligible top ≤5 sorted correctly
 2. React table displays the same data
-3. Eligibility test passes for exact `" TRUE"`
+3. Eligibility test passes for exact `"TRUE"`
 4. Public GitHub repo without secrets
 5. README + AI_USAGE filled; unfinished work listed if any
