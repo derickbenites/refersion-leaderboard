@@ -45,6 +45,42 @@ final class RefersionClient
         return $affiliates;
     }
 
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function customFields(mixed $affiliateId): array
+    {
+        $id = $this->pathAffiliateId($affiliateId);
+
+        if ($this->baseUrl === '') {
+            throw new RefersionApiException('Refersion base URL is not configured.');
+        }
+
+        try {
+            $response = $this->http
+                ->withToken($this->accessToken())
+                ->acceptJson()
+                ->timeout(15)
+                ->get(rtrim($this->baseUrl, '/').'/affiliates/'.$id.'/custom-fields');
+        } catch (RefersionAuthException $exception) {
+            throw $exception;
+        } catch (Throwable) {
+            throw new RefersionApiException('Refersion custom field request failed.');
+        }
+
+        if ($response->status() === 401) {
+            throw new RefersionAuthException('Refersion rejected the access token.');
+        }
+
+        if ($response->failed()) {
+            throw new RefersionApiException(
+                'Refersion custom field request failed with status '.$response->status().'.',
+            );
+        }
+
+        return $this->resourceList($response, 'Refersion custom field response is missing data.');
+    }
+
     public function accessToken(): string
     {
         $cached = $this->cache->get($this->cacheKey());
@@ -134,15 +170,40 @@ final class RefersionClient
             );
         }
 
+        return $this->resourceList($response, 'Refersion affiliate response is missing data.');
+    }
+
+    private function pathAffiliateId(mixed $affiliateId): string
+    {
+        if (is_int($affiliateId) && $affiliateId >= 0) {
+            return (string) $affiliateId;
+        }
+
+        if (is_float($affiliateId) && floor($affiliateId) === $affiliateId && $affiliateId >= 0 && $affiliateId <= PHP_INT_MAX) {
+            return (string) (int) $affiliateId;
+        }
+
+        if (is_string($affiliateId) && preg_match('/^(0|[1-9][0-9]*)$/', $affiliateId) === 1) {
+            return $affiliateId;
+        }
+
+        throw new RefersionApiException('Refersion affiliate id is missing.');
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    private function resourceList(Response $response, string $missingMessage): array
+    {
         $data = $response->json('data');
 
         if (! is_array($data) || ! array_is_list($data)) {
-            throw new RefersionApiException('Refersion affiliate response is missing data.');
+            throw new RefersionApiException($missingMessage);
         }
 
-        foreach ($data as $affiliate) {
-            if (! is_array($affiliate)) {
-                throw new RefersionApiException('Refersion affiliate response data is malformed.');
+        foreach ($data as $item) {
+            if (! is_array($item)) {
+                throw new RefersionApiException($missingMessage);
             }
         }
 
