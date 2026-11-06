@@ -56,7 +56,7 @@ Status legend: `todo` · `doing` · `done` · `blocked`
 
 | ID | Status | Task | Suggested commit |
 |----|--------|------|------------------|
-| P3.1 | todo | API client pointing at Laravel (dev proxy) | `feat: add frontend api client` |
+| P3.1 | done | API client pointing at Laravel (dev proxy) | `feat: add frontend api client` |
 | P3.2 | todo | Leaderboard table UI (rank, id, name, commission) | `feat: render leaderboard table` |
 | P3.3 | todo | Loading and error states | `feat: handle leaderboard loading and errors` |
 
