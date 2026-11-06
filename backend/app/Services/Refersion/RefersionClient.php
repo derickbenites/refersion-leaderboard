@@ -15,9 +15,35 @@ final class RefersionClient
         private readonly HttpFactory $http,
         private readonly CacheRepository $cache,
         private readonly string $tokenUrl,
+        private readonly string $baseUrl,
         private readonly string $clientId,
         private readonly string $clientSecret,
     ) {}
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    public function listAffiliates(int $limit = 100): array
+    {
+        if ($limit < 1 || $limit > 100) {
+            throw new RefersionApiException('Refersion affiliate page limit must be from 1 to 100.');
+        }
+
+        if ($this->baseUrl === '') {
+            throw new RefersionApiException('Refersion base URL is not configured.');
+        }
+
+        $affiliates = [];
+        $page = 1;
+
+        do {
+            $batch = $this->affiliatePage($page, $limit);
+            array_push($affiliates, ...$batch);
+            $page++;
+        } while (count($batch) >= $limit);
+
+        return $affiliates;
+    }
 
     public function accessToken(): string
     {
@@ -76,6 +102,51 @@ final class RefersionClient
         }
 
         return max(1, $expiresIn - self::EXPIRY_SKEW_SECONDS);
+    }
+
+    /**
+     * @return list<array<string, mixed>>
+     */
+    private function affiliatePage(int $page, int $limit): array
+    {
+        try {
+            $response = $this->http
+                ->withToken($this->accessToken())
+                ->acceptJson()
+                ->timeout(15)
+                ->get(rtrim($this->baseUrl, '/').'/affiliates', [
+                    'page' => $page,
+                    'limit' => $limit,
+                ]);
+        } catch (RefersionAuthException $exception) {
+            throw $exception;
+        } catch (Throwable) {
+            throw new RefersionApiException('Refersion affiliate request failed.');
+        }
+
+        if ($response->status() === 401) {
+            throw new RefersionAuthException('Refersion rejected the access token.');
+        }
+
+        if ($response->failed()) {
+            throw new RefersionApiException(
+                'Refersion affiliate request failed with status '.$response->status().'.',
+            );
+        }
+
+        $data = $response->json('data');
+
+        if (! is_array($data) || ! array_is_list($data)) {
+            throw new RefersionApiException('Refersion affiliate response is missing data.');
+        }
+
+        foreach ($data as $affiliate) {
+            if (! is_array($affiliate)) {
+                throw new RefersionApiException('Refersion affiliate response data is malformed.');
+            }
+        }
+
+        return $data;
     }
 
     private function cacheKey(): string

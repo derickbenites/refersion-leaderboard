@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
                 $app->make(HttpFactory::class),
                 $app->make(CacheRepository::class),
                 (string) ($config['token_url'] ?? ''),
+                (string) ($config['base_url'] ?? ''),
                 (string) ($config['client_id'] ?? ''),
                 (string) ($config['client_secret'] ?? ''),
             );

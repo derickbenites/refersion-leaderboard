@@ -43,7 +43,7 @@ Status legend: `todo` · `doing` · `done` · `blocked`
 |----|--------|------|------------------|
 | P2.1 | done | Env keys + `.env.example` for Refersion OAuth/API | `chore: add refersion env placeholders` |
 | P2.2 | done | Refersion OAuth token service | `feat: exchange refersion oauth token` |
-| P2.3 | todo | List affiliates with pagination stop rule | `feat: paginate refersion affiliates` |
+| P2.3 | done | List affiliates with pagination stop rule | `feat: paginate refersion affiliates` |
 | P2.4 | todo | Fetch affiliate custom fields | `feat: fetch affiliate custom fields` |
 | P2.5 | todo | Eligibility filter exact `Display in leaderboard` / ` TRUE` | `feat: filter leaderboard eligibility` |
 | P2.6 | todo | Rank by `performance.total.commission` and take top 5 | `feat: rank top five affiliates` |
