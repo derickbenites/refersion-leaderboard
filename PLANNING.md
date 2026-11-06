@@ -68,7 +68,7 @@ Status legend: `todo` · `doing` · `done` · `blocked`
 |----|--------|------|------------------|
 | P4.1 | done | End-to-end manual run against live API; note results in README | `docs: record live leaderboard run` |
 | P4.2 | done | Fill `AI_USAGE.md` honestly | `docs: complete AI usage log` |
-| P4.3 | todo | Document unfinished work / next steps | `docs: note unfinished work` |
+| P4.3 | done | Document unfinished work / next steps | `docs: note unfinished work` |
 | P4.4 | todo | Push public repo (verify no secrets in history) | `chore: prepare public release` |
 
 ---

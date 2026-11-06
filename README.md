@@ -66,3 +66,19 @@ Checked on 2026-11-06 against `https://api.refersion.com/v2026-08`. On this mach
 ```
 
 The React table rendered those same two rows. Only two affiliates had the custom field `Display in leaderboard` with the value exactly ` TRUE`.
+
+## Unfinished work
+
+Left for later, as listed in `PLANNING.md`:
+
+- Tailwind and accessibility polish
+- An Artisan command that returns the same leaderboard
+- Retry when Refersion responds with HTTP 429 and `Retry-After`
+- Caching affiliate responses between requests
+
+Also still open:
+
+- Local boot uses SQLite. MySQL is available for Laravel defaults and is not required for ranking.
+- When two eligible affiliates share a commission, the lower `id` is ranked first.
+- An affiliate with no numeric `performance.total.commission` is omitted.
+- The installed lock needs PHP 8.4.1 or newer. `PLANNING.md` still mentions PHP 8.2+.
